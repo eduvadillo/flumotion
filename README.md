@@ -1,6 +1,6 @@
 # Encuentra las carátulas de las canciones de tus artistas favoritos
 
-[Live version 🖥](https://fluendo-challenge.netlify.app/)
+[Live version 🖥](https://flumotion-challenge.netlify.app/)
 
 ## Objetivo
 

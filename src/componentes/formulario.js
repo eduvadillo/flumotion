@@ -50,13 +50,13 @@ function Formulario() {
 
     if (songSearch.length !== 0 && artistSearch.length !== 0) {
       axios
-        .post(`http://localhost:5005/api/album`, requestSearch)
+        .post(`${API_URL}/album`, requestSearch)
         .then((response) => {
           console.log(`desde el response1, `, response.data.length);
           if (response.data.length !== 0) {
             setDataFound(response.data);
           } else {
-            axios.post(`http://localhost:5005/api/song-not-find`, requestSearch).then((response) => {
+            axios.post(`${API_URL}/song-not-find`, requestSearch).then((response) => {
               console.log(`desde el not find`, response.data.length);
               setNotFindSong(response.data);
             });
