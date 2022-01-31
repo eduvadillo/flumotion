@@ -83,7 +83,7 @@ function Formulario() {
           {dataFound.map((photo) => (
             <>
               <div className='song-found'>
-                <img src={photo.artworkUrl100}></img>
+                <img src={photo.artworkUrl100} alt='carátula'></img>
                 <audio controls>
                   <source src={photo.previewUrl} type='audio/mp4' />
                   <source src={photo.previewUrl} type='audio/ogg' />
@@ -103,7 +103,7 @@ function Formulario() {
           {notFindSong.map((photo) => (
             <>
               <div className='song-found'>
-                <img src={photo.artworkUrl100}></img>
+                <img src={photo.artworkUrl100} alt='carátula'></img>
                 <audio controls>
                   <source src={photo.previewUrl} type='audio/mp4' />
                   <source src={photo.previewUrl} type='audio/ogg' />
