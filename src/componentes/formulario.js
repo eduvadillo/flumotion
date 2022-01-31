@@ -118,21 +118,6 @@ function Formulario() {
       {notSongWriteNotArtist ? <h1>{notSongWriteNotArtist}</h1> : <></>}
     </div>
   );
-} /*  else {
-    console.log(dataFound);
-    return (
-      <div className=''>
-        {dataFound.map((photo) => (
-          <>
-            <div className='info-league-container'>
-              <h4>
-                {photo.artistName} <img src={photo.artworkUrl100}></img>
-              </h4>
-            </div>
-          </>
-        ))}
-      </div>
-    );
-  } */
+}
 
 export default Formulario;
