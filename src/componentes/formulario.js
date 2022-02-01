@@ -22,7 +22,8 @@ function Formulario() {
     setDataFound(false);
     setNotFindSong(false);
 
-    let artists = artistSearch.replace(" ", "+");
+    let artistNormalize = artistSearch.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    let artists = artistNormalize.replace(" ", "+");
 
     if (songSearch.length === 0 && artistSearch.length === 0) {
       setNotSongWriteNotArtist(`Debes escribir el nombre de un artista y una canción`);
@@ -38,7 +39,9 @@ function Formulario() {
       setNotSongWrite(false);
     }, 3000);
 
-    let song = songSearch
+    let songsNormalize = songSearch.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    let song = songsNormalize
       .trim()
       .split(" ")
       .map((v) => v[0].toUpperCase() + v.substr(1))
@@ -55,12 +58,10 @@ function Formulario() {
       axios
         .post(`${API_URL}/album`, requestSearch)
         .then((response) => {
-          console.log(`desde el response1, `, response.data.length);
           if (response.data.length !== 0) {
             setDataFound(response.data);
           } else {
             axios.post(`${API_URL}/song-not-find`, requestSearch).then((response) => {
-              console.log(`desde el not find`, response.data.length);
               setNotFindSong(response.data);
             });
           }
