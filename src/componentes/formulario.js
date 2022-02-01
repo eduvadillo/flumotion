@@ -49,6 +49,8 @@ function Formulario() {
     };
 
     if (songSearch.length !== 0 && artistSearch.length !== 0) {
+      setDataFound(false);
+
       axios
         .post(`${API_URL}/album`, requestSearch)
         .then((response) => {
