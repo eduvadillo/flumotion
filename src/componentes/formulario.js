@@ -19,6 +19,9 @@ function Formulario() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
 
+    setDataFound(false);
+    setNotFindSong(false);
+
     let artists = artistSearch.replace(" ", "+");
 
     if (songSearch.length === 0 && artistSearch.length === 0) {
@@ -49,8 +52,6 @@ function Formulario() {
     };
 
     if (songSearch.length !== 0 && artistSearch.length !== 0) {
-      setDataFound(false);
-
       axios
         .post(`${API_URL}/album`, requestSearch)
         .then((response) => {
