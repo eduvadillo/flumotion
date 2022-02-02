@@ -56,11 +56,11 @@ function Formulario() {
     if (songSearch.length !== 0 && artistSearch.length !== 0) {
       newSearch(requestSearch)
         .then((response) => {
-          if (response.data.length !== 0) {
-            setDataFound(response.data);
+          if (response.length !== 0) {
+            setDataFound(response);
           } else {
             searchNotFound(requestSearch).then((response) => {
-              setNotFindSong(response.data);
+              setNotFindSong(response);
             });
           }
         })
