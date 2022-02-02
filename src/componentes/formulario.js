@@ -57,7 +57,7 @@ function Formulario() {
       newSearch(requestSearch)
         .then((response) => {
           console.log(`reeeeeeeeesponse`, response);
-          if (response.length !== 0) {
+          if (response.data.length !== 0) {
             setDataFound(response.data);
           } else {
             searchNotFound(requestSearch).then((response) => {
