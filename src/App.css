@@ -50,3 +50,28 @@ h1 {
   flex-wrap: wrap;
   align-items: center;
 }
+
+@media (max-width: 600px) {
+  .formulario-container form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6rem;
+    flex-wrap: wrap;
+  }
+  .song-found {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .formulario-container h1:first-child {
+    text-align: center;
+  }
+
+  .formulario-container form input {
+    margin-bottom: 1rem;
+  }
+  .song-found img {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}
