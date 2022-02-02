@@ -1,9 +1,8 @@
 import axios from "axios";
+import { newSearch, searchNotFound } from "../services/search";
 import { useEffect, useState } from "react";
 
 function Formulario() {
-  const API_URL = process.env.REACT_APP_API_URL;
-
   const [artistSearch, setArtistSearch] = useState("");
   const [songSearch, setSongSearch] = useState("");
   const [dataFound, setDataFound] = useState(false);
@@ -55,13 +54,12 @@ function Formulario() {
     };
 
     if (songSearch.length !== 0 && artistSearch.length !== 0) {
-      axios
-        .post(`${API_URL}/album`, requestSearch)
+      newSearch(requestSearch)
         .then((response) => {
           if (response.data.length !== 0) {
             setDataFound(response.data);
           } else {
-            axios.post(`${API_URL}/song-not-find`, requestSearch).then((response) => {
+            searchNotFound(requestSearch).then((response) => {
               setNotFindSong(response.data);
             });
           }
